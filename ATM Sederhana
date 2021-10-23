@@ -1,0 +1,73 @@
+/**         ATM SEDERHANA
+    untuk memenuhi tugas TLS Pemrograman
+    Oleh: Annisa Uswa Sufia
+          21/475357/TK/52474                **/
+
+
+#include <iostream>
+using namespace std;
+enum fitur_ATM {cek_saldo=1, debet, kredit, keluar};
+
+int main()
+{
+    int fitur_ATM_terpilih, PIN, saldo=5000000, saldo_minus=0, saldo_plus=0;
+    bool keg_transaksi, cetak_struk;
+    
+    cout<<"\n\t\t------------------------------------------";
+    cout<<"\n\t\t||\tS E L A M A T  D A T A N G\t||";
+    cout<<"\n\t\t||\t\t   D I\t\t\t||";
+    cout<<"\n\t\t||\t      A T M  U S W A\t\t||";
+    cout<<"\n\t\t------------------------------------------";
+    cout<<"\n\nDalam satu kali masukan kartu ATM, Anda hanya bisa melakukan maksimal 5x transaksi";
+    cout<<"\nMasukkan PIN ATM Anda: ";
+    cin>>PIN;
+    
+    if (PIN=121212){
+    for (int i=1; i<=5; i++)
+    {
+    cout<<"---------------------------------------------------";
+    cout<<"\n\nApakah Anda ingin melanjutkan transaksi?(y=1/n=0): ";
+    cin>>keg_transaksi;
+    if (keg_transaksi == 1){
+    cout<<"\n1=Cek saldo\n2=Debet\n3=Kredit\n4=Keluar\nPilih transaksi yang ingin Anda lakukan: ";
+    cin>>fitur_ATM_terpilih;
+    
+    switch (fitur_ATM_terpilih){
+        case cek_saldo:
+            cout<<"Saldo Anda adalah= Rp "<<saldo<<endl;
+            break;
+        case debet:
+            cout<<"Berapa uang yang ingin Anda tarik= ";
+            cin>>saldo_minus;
+            cout<<"Silahkan Anda ambil uangnya\n";
+            break;
+        case kredit:
+            cout<<"Berapa uang yang ingin Anda simpan= ";
+            cin>>saldo_plus;
+            break;
+        case keluar:
+            break;
+        }}
+    else
+        break;
+    }}
+    else
+        cout<<"PIN yang Anda masukkan salah!!\nMohon masukkan ulang kartu ATM untuk memulai ulang transaksi";
+    
+    saldo -= saldo_minus;
+    saldo += saldo_plus;
+    
+    cout<<"\nApakah Anda ingin mencetak struk transaksi?(y=1/n=0): ";
+    cin>>cetak_struk;
+    if (cetak_struk==1){
+        cout<<"\n\t||Anda telah menarik uang sebesar " << saldo_minus <<endl;
+        cout<<"\t||Anda telah menyimpan uang sebesar " << saldo_plus <<endl;
+        cout<<"\t||Sisa saldo Anda adalah= Rp " << saldo;
+        cout<<"\n\t||Terima kasih sudah mempercayai ATM USWA";
+    }
+    else
+        cout<<"\nTerima kasih sudah mempercayai ATM USWA";
+    return 0;
+}
+
+
